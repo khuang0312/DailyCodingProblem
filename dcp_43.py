@@ -15,21 +15,28 @@ class EmptyStackError(Exception):
 
 class Stack:
     def __init__(self):
+        #we used a list since Python doesn't have arrays
         self.stack = []
 
     def __str__(self):
+        '''prints the stack from bottom to top
+        '''
         return str(self.stack)
 
     def push(self, value):
+        #the last element in the list is considered the top...
         self.stack.append(value)
 
     def pop(self):
+        #since the last element is considered the top
+        #we can easily remove the last element using pop...
         if len(self.stack) == 0:
             raise EmptyStackError
         
         return self.stack.pop()
     
     def max(self):
+        #we just return the max of the list
         if len(self.stack) == 0:
             raise EmptyStackError
         
