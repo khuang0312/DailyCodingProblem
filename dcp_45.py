@@ -18,16 +18,15 @@ def rand7():
     #rand5() + rand5() allows us to uniformly get a number between 1 to 10.
     #If we modulo this number by 2, we get either 0 or 1.
 
-    #if we have a uniform chance of getting between 1 and 5
-    #and a uniform chance of getting a number between 0 and 1 twice
-    #we have a uniform chance of getting a number between 1 and 7
+    x = 1
     
-    x = (rand5() + rand5()) % 2
-    y = (rand5() + rand5()) % 2
-    return rand5() + x + y
+    for i in range(6):
+        x += (rand5() + rand5()) % 2
+
+    return x
 
 if __name__ == "__main__":
-    for i in range(100):
+    for i in range(1000):
         a = rand7()
         if a < 1 or a > 7:
             raise Exception
